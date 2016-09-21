@@ -141,7 +141,7 @@ class listing{
             if success {
                 print("listing was saved in DB with success")
             } else {
-                print(error!.localizedDescription)
+                print(error?.localizedDescription)
             }
         }
         
