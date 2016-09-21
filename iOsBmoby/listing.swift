@@ -40,15 +40,15 @@ class listing{
     var hostLanguagePortuguese :Bool = false
     var hostLanguageRussian :Bool = false
     var hostLanguageSpanish :Bool = false
-    var image01 = UIImage.animatedImageNamed("default", duration: 0.4)
-    var image02 = UIImage.animatedImageNamed("default", duration: 0.4)
-    var image03 = UIImage.animatedImageNamed("default", duration: 0.4)
-    var image04 = UIImage.animatedImageNamed("default", duration: 0.4)
-    var image05 = UIImage.animatedImageNamed("default", duration: 0.4)
-    var image06 = UIImage.animatedImageNamed("default", duration: 0.4)
-    var image07 = UIImage.animatedImageNamed("default", duration: 0.4)
-    var image08 = UIImage.animatedImageNamed("default", duration: 0.4)
-    var image09 = UIImage.animatedImageNamed("default", duration: 0.4)
+    var image01 : UIImageView!
+    var image02 : UIImageView!
+    var image03 : UIImageView!
+    var image04 : UIImageView!
+    var image05 : UIImageView!
+    var image06 : UIImageView!
+    var image07 : UIImageView!
+    var image08 : UIImageView!
+    var image09 : UIImageView!
     var intercom :Bool = false
     var iron :Bool = false
     var jacuzzi :Bool = false
@@ -74,6 +74,29 @@ class listing{
     
     
     func save(){
+        //declaring images data from images UIImageView
+        let image01Data = UIImageJPEGRepresentation(image01.image!, 0.5)
+        let image02Data = UIImageJPEGRepresentation(image02.image!, 0.5)
+        let image03Data = UIImageJPEGRepresentation(image03.image!, 0.5)
+        let image04Data = UIImageJPEGRepresentation(image04.image!, 0.5)
+        let image05Data = UIImageJPEGRepresentation(image05.image!, 0.5)
+        let image06Data = UIImageJPEGRepresentation(image06.image!, 0.5)
+        let image07Data = UIImageJPEGRepresentation(image07.image!, 0.5)
+        let image08Data = UIImageJPEGRepresentation(image08.image!, 0.5)
+        let image09Data = UIImageJPEGRepresentation(image09.image!, 0.5)
+        
+        //converting images to PFFile to send thous images to the DB
+        let image01asFile = PFFile(name: "default.jpg", data: image01Data!)
+        let image02asFile = PFFile(name: "default.jpg", data: image02Data!)
+        let image03asFile = PFFile(name: "default.jpg", data: image03Data!)
+        let image04asFile = PFFile(name: "default.jpg", data: image04Data!)
+        let image05asFile = PFFile(name: "default.jpg", data: image05Data!)
+        let image06asFile = PFFile(name: "default.jpg", data: image06Data!)
+        let image07asFile = PFFile(name: "default.jpg", data: image07Data!)
+        let image08asFile = PFFile(name: "default.jpg", data: image08Data!)
+        let image09asFile = PFFile(name: "default.jpg", data: image09Data!)
+        
+        
         let object = PFObject(className: "listings")
         object["longitude"] =  longitude
         object["latitude"] = latitude
@@ -105,15 +128,15 @@ class listing{
         object["hostLanguagePortuguese"] = hostLanguagePortuguese
         object["hostLanguageRussian"] = hostLanguageRussian
         object["hostLanguageSpanish"] = hostLanguageSpanish
-        object["image01"] = image01
-        object["image02"] = image02
-        object["image03"] = image03
-        object["image04"] = image04
-        object["image05"] = image05
-        object["image06"] = image06
-        object["image07"] = image07
-        object["image08"] = image08
-        object["image09"] = image09
+        object["image01"] = image01asFile
+        object["image02"] = image02asFile
+        object["image03"] = image03asFile
+        object["image04"] = image04asFile
+        object["image05"] = image05asFile
+        object["image06"] = image06asFile
+        object["image07"] = image07asFile
+        object["image08"] = image08asFile
+        object["image09"] = image09asFile
         object["intercom"] = intercom
         object["iron"] = iron
         object["jacuzzi"] = jacuzzi
