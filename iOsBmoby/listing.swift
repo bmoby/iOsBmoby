@@ -86,15 +86,15 @@ class listing{
         let image09Data = UIImageJPEGRepresentation(image09.image!, 0.5)
         
         //converting images to PFFile to send thous images to the DB
-        let image01asFile = PFFile(name: "default.jpg", data: image01Data!)
-        let image02asFile = PFFile(name: "default.jpg", data: image02Data!)
-        let image03asFile = PFFile(name: "default.jpg", data: image03Data!)
-        let image04asFile = PFFile(name: "default.jpg", data: image04Data!)
-        let image05asFile = PFFile(name: "default.jpg", data: image05Data!)
-        let image06asFile = PFFile(name: "default.jpg", data: image06Data!)
-        let image07asFile = PFFile(name: "default.jpg", data: image07Data!)
-        let image08asFile = PFFile(name: "default.jpg", data: image08Data!)
-        let image09asFile = PFFile(name: "default.jpg", data: image09Data!)
+        let image01asFile = PFFile(name: "default", data: image01Data!)
+        let image02asFile = PFFile(name: "default", data: image02Data!)
+        let image03asFile = PFFile(name: "default", data: image03Data!)
+        let image04asFile = PFFile(name: "default", data: image04Data!)
+        let image05asFile = PFFile(name: "default", data: image05Data!)
+        let image06asFile = PFFile(name: "default", data: image06Data!)
+        let image07asFile = PFFile(name: "default", data: image07Data!)
+        let image08asFile = PFFile(name: "default", data: image08Data!)
+        let image09asFile = PFFile(name: "default", data: image09Data!)
         
         
         let object = PFObject(className: "listings")
