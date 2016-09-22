@@ -23,8 +23,11 @@
 		F20282BB1D91BE4900BFA772 /* listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20282BA1D91BE4900BFA772 /* listing.swift */; };
 		F2FB395A1D918C4E00FEB57F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB39591D918C4E00FEB57F /* AppDelegate.swift */; };
 		F2FB395F1D918C4E00FEB57F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2FB395D1D918C4E00FEB57F /* Main.storyboard */; };
-		F2FB39611D918C4E00FEB57F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2FB39601D918C4E00FEB57F /* Assets.xcassets */; };
 		F2FB39641D918C4E00FEB57F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2FB39621D918C4E00FEB57F /* LaunchScreen.storyboard */; };
+		F2FEDF041D92D3280013027B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2FEDF031D92D3280013027B /* Assets.xcassets */; };
+		F2FEDF061D92F2430013027B /* citiesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEDF051D92F2430013027B /* citiesVC.swift */; };
+		F2FEDF081D92F3AD0013027B /* citiesHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEDF071D92F3AD0013027B /* citiesHeader.swift */; };
+		F2FEDF0A1D92F3D40013027B /* citiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEDF091D92F3D40013027B /* citiesCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,9 +48,12 @@
 		F2FB39561D918C4E00FEB57F /* iOsBmoby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOsBmoby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2FB39591D918C4E00FEB57F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2FB395E1D918C4E00FEB57F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F2FB39601D918C4E00FEB57F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2FB39631D918C4E00FEB57F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F2FB39651D918C4E00FEB57F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2FEDF031D92D3280013027B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F2FEDF051D92F2430013027B /* citiesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = citiesVC.swift; sourceTree = "<group>"; };
+		F2FEDF071D92F3AD0013027B /* citiesHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = citiesHeader.swift; sourceTree = "<group>"; };
+		F2FEDF091D92F3D40013027B /* citiesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = citiesCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,9 +120,9 @@
 			children = (
 				F2FB39591D918C4E00FEB57F /* AppDelegate.swift */,
 				F2FB395D1D918C4E00FEB57F /* Main.storyboard */,
-				F2FB39601D918C4E00FEB57F /* Assets.xcassets */,
 				F2FB39621D918C4E00FEB57F /* LaunchScreen.storyboard */,
 				F2FB39651D918C4E00FEB57F /* Info.plist */,
+				F2FEDF031D92D3280013027B /* Assets.xcassets */,
 				F20282BA1D91BE4900BFA772 /* listing.swift */,
 				8704A38D1D92811200004A6E /* homeVC.swift */,
 			);
@@ -183,7 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2FB39641D918C4E00FEB57F /* LaunchScreen.storyboard in Resources */,
-				F2FB39611D918C4E00FEB57F /* Assets.xcassets in Resources */,
+				F2FEDF041D92D3280013027B /* Assets.xcassets in Resources */,
 				F2FB395F1D918C4E00FEB57F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,6 +204,8 @@
 				8704A38E1D92811200004A6E /* homeVC.swift in Sources */,
 				F20282BB1D91BE4900BFA772 /* listing.swift in Sources */,
 				F2FB395A1D918C4E00FEB57F /* AppDelegate.swift in Sources */,
+				F2FEDF0A1D92F3D40013027B /* citiesCell.swift in Sources */,
+				F2FEDF081D92F3AD0013027B /* citiesHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
