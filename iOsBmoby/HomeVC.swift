@@ -20,6 +20,7 @@ class homeVC: UIViewController {
     var showAmenitiesBtn = [UIButton]()
     var lbl = [UILabel]()
     
+    
     //Scrollview
     @IBOutlet weak var scrollView: UIScrollView!
     
