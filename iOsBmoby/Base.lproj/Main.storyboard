@@ -633,6 +633,90 @@
             </objects>
             <point key="canvasLocation" x="1183" y="297"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="VUn-3r-9AA">
+            <objects>
+                <collectionViewController storyboardIdentifier="checkCVC" useStoryboardIdentifierAsRestorationIdentifier="YES" clearsSelectionOnViewWillAppear="NO" id="ErF-Tl-w2K" customClass="citiesVC" customModule="iOsBmoby" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="HBJ-56-U1i">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kOo-JM-42b">
+                            <size key="itemSize" width="154" height="149"/>
+                            <size key="headerReferenceSize" width="50" height="154"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" reuseIdentifier="CitiesCell" id="4PT-8f-LkO" customClass="citiesCell" customModule="iOsBmoby" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="154" width="154" height="149"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="154" height="149"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="V4m-vg-qFl">
+                                            <rect key="frame" x="0.0" y="0.0" width="154" height="112"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CityName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dro-jx-WID">
+                                            <rect key="frame" x="31" y="120" width="102" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="citiesCellImg" destination="V4m-vg-qFl" id="0N0-V7-8cI"/>
+                                    <outlet property="citiesCellNameLbl" destination="dro-jx-WID" id="ten-bV-IUr"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CitiesHeader" id="GXp-B9-Hne" customClass="citiesHeader" customModule="iOsBmoby" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="154"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a city" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jwn-tb-3gk">
+                                    <rect key="frame" x="8" y="24" width="252" height="51"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="city name" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" id="mfy-Kf-qvQ">
+                                    <rect key="frame" x="8" y="71" width="304" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EmV-s5-xAl">
+                                    <rect key="frame" x="115" y="104" width="90" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Appear there"/>
+                                    <connections>
+                                        <action selector="chooseCityBtnClicked:" destination="GXp-B9-Hne" eventType="touchUpInside" id="qsc-d3-aL8"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <connections>
+                                <outlet property="citiesHeaderSubmitBtn" destination="EmV-s5-xAl" id="cQ9-m0-uGa"/>
+                                <outlet property="citiesHeaderTitleLbl" destination="Jwn-tb-3gk" id="AVa-JG-J26"/>
+                                <outlet property="citiesHeaderTxtField" destination="mfy-Kf-qvQ" id="KFZ-NI-wCd"/>
+                            </connections>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="ErF-Tl-w2K" id="7Ye-d9-ugL"/>
+                            <outlet property="delegate" destination="ErF-Tl-w2K" id="W6V-Zv-UoM"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Item" id="IgV-6q-J1d"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RtR-Y0-XkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1204" y="1065"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Ae4-qW-eea">
             <objects>

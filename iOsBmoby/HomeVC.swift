@@ -146,8 +146,7 @@ class homeVC: UIViewController {
     }
     
 
-    //Slider bar 
-    
+  
     
     // Show amenities if amenities button clicked---------------------------------------------------
     @IBAction func amenitiesBtn_clicked(sender: AnyObject) {
