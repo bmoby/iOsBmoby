@@ -9,17 +9,20 @@
 import UIKit
 import Parse
 
-
-
-var ownColor = UIColor(red: 228.0/255.0, green: 98.0/255.0, blue: 92.0/255.0, alpha: 1)
-var grayColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1)
-
-class homeVC: UIViewController {
+class homeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    //Chage the numbers pushing the buttton "+" and "-"
+    var nb = Int()
+    
+    //To show hidden itmes
     var showAmenities = [UILabel]()
     var showAmenitiesBtn = [UIButton]()
+    
+    //To do some actions on tapping the label items
     var lbl = [UILabel]()
     
+    var ownColor = UIColor(red: 228.0/255.0, green: 98.0/255.0, blue: 92.0/255.0, alpha: 1)
+    var grayColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1)
     
     //Scrollview
     @IBOutlet weak var scrollView: UIScrollView!
@@ -28,7 +31,7 @@ class homeVC: UIViewController {
     @IBOutlet weak var bmobyImg: UIImageView!
     
     // Listing price
-    @IBOutlet weak var priceIcon: UILabel!
+    
     @IBOutlet weak var priceSlider: UISlider!
     
     // Number of guests
@@ -47,9 +50,9 @@ class homeVC: UIViewController {
     
     // Chechin time
     @IBOutlet weak var checkinLbl: UILabel!
-    @IBOutlet weak var checkinTimeLbl: UILabel!
-    @IBOutlet weak var removeCheckinTimeBtn: UIButton!
-    @IBOutlet weak var addCheckinTimeBtn: UIButton!
+    @IBOutlet weak var checkinHourTxt: UITextField!
+    
+  
     
     // Accomodation type
     @IBOutlet weak var sharedRoomLbl: UILabel!
@@ -120,13 +123,31 @@ class homeVC: UIViewController {
     @IBOutlet weak var arabicLbl: UILabel!
     @IBOutlet weak var japaneseLbl: UILabel!
     
-   
-    
     // Launch research of listing
     @IBOutlet weak var findHostsBtn: UIButton!
     
+    //Pickerview and picker data
+    var hourPicker : UIPickerView!
+    let hour = ["00:00","00:30","01:00","01:30","02:00","02:30","03:00","03:30","04:00","04:30","05:00","05:30","06:00","06:30","07:00","07:30","08:00","08:30","09:00","09:30","10:00","10:30","11:00","11:30","12:00","12:30","13:00","13:30","14:00","14:30","15:00","15:30","16:00","16:30","17:00","17:30","18:00","18:30","19:00","19:30","20:00","20:30","21:00","21:30","22:00","22:30","23:00","23:30"]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Scroll view 
+        scrollView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        scrollView.contentSize.height = 1200
+        
+        
+        //Create hour picker 
+        hourPicker = UIPickerView()
+        hourPicker.dataSource = self
+        hourPicker.delegate = self
+        hourPicker.backgroundColor = UIColor.groupTableViewBackgroundColor()
+        hourPicker.showsSelectionIndicator = true
+        checkinHourTxt.inputView = hourPicker
+        
+        
         
         // Show amenities array
         showAmenities = [ nbBedroomLbl, bedroomLbl, nbBathroomLbl, bathroomLbl,nbBedLbl, bedLbl,kitchenLbl, breakfastLbl, wifiInternetLbl, wheelchairAccessible, tvLbl, lockForBedroom, elevatorLbl, dryerLbl, washerLbl, ironLbl, hairDryerLbl, smokingAllowedLbl, intercomLbl, airConditioningLbl, familyKidLbl, petsAllowed, parkignLbl, indoorFireplaceLbl, gymLbl, poolLbl, saunaLbl, hammamLbl, jacuzziLbl, hostLanguagesLbl,englishLbl, frenchLbl, spanishLbl, germanLbl, chineseLbl, italianLbl, portugueseLbl, dutchLbl, russianLbl, arabicLbl, japaneseLbl]
@@ -146,10 +167,104 @@ class homeVC: UIViewController {
         
     }
     
-
-  
     
-    // Show amenities if amenities button clicked---------------------------------------------------
+    // Add or remove number of guests -----------------------------------------------------------------------
+    @IBAction func removeGuestBtn_clicked(sender: AnyObject) {
+        nb = Int(nbGuestLbl.text!)!
+        nbGuestLbl.text = String(nb-1)
+        if nb == 1 {
+            nbGuestLbl.text = String(1)
+        }
+    }
+    
+    @IBAction func addGuestBtn_clicked(sender: AnyObject) {
+        nb = Int(nbGuestLbl.text!)!
+        nbGuestLbl.text = String(nb+1)
+    }
+    
+    
+    //Add or remove number of nights-------------------------------------------------------------------------
+    @IBAction func removeNightBtn_clicked(sender: AnyObject) {
+        nb = Int(nbNightLbl.text!)!
+        nbNightLbl.text = String(nb-1)
+        if nb == 1 {
+            nbNightLbl.text = String(1)
+        }
+    }
+    
+    
+    @IBAction func addNightBtn_clicked(sender: AnyObject) {
+        nb = Int(nbNightLbl.text!)!
+        nbNightLbl.text = String(nb+1)
+    }
+    
+    //--------------------------------------------PICKER VIEW METHODS----------------------------------------
+    // number of components: one component the string array og hour
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return hour.count
+    }
+    
+    //number of items to be selected
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return hour[row]
+    }
+    
+    //picker text config
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        checkinHourTxt.text = hour[row]
+        self.view.endEditing(true)
+    }
+    
+    
+    //Add or remove number of bedroom------------------------------------------------------------------------
+    @IBAction func removeBedroomBtn_clicked(sender: AnyObject) {
+        nb = Int(nbBedroomLbl.text!)!
+        nbBedroomLbl.text = String(nb-1)
+        if nb == 1 {
+            nbBedroomLbl.text = String(1)
+        }
+    }
+    
+    @IBAction func addBedroomBtn_clicked(sender: AnyObject) {
+        nb = Int(nbBedroomLbl.text!)!
+        nbBedroomLbl.text = String(nb+1)
+    }
+    
+    
+    //Add or remove number of bathroom-----------------------------------------------------------------------
+    @IBAction func removeBathroomBtn_clicked(sender: AnyObject) {
+        nb = Int(nbBathroomLbl.text!)!
+        nbBathroomLbl.text = String(nb-1)
+        if nb == 1 {
+            nbBathroomLbl.text = String(1)
+        }
+    }
+    
+    @IBAction func addBathroomBtn_clicked(sender: AnyObject) {
+        nb = Int(nbBathroomLbl.text!)!
+        nbBathroomLbl.text = String(nb+1)
+    }
+    
+    
+    //Add or remove number of bed----------------------------------------------------------------------------
+    @IBAction func removeBedBtn_clicked(sender: AnyObject) {
+        nb = Int(nbBedLbl.text!)!
+        nbBedLbl.text = String(nb-1)
+        if nb == 1 {
+            nbBedLbl.text = String(1)
+        }
+    }
+    
+    @IBAction func addBedBtn_clicked(sender: AnyObject) {
+        nb = Int(nbBedLbl.text!)!
+        nbBedLbl.text = String(nb+1)
+    }
+    
+    // Show amenities if amenities button clicked-----------------------------------------------------------
     @IBAction func amenitiesBtn_clicked(sender: AnyObject) {
         amenitiesBtn.hidden = true
         findHostsBtn.hidden = true
@@ -165,22 +280,41 @@ class homeVC: UIViewController {
         }
     }
     
-    // choose amenity -----------------------------------------------------------------------------
+    // choose amenity ---------------------------------------------------------------------------------------
     func tapLbl(sender: UITapGestureRecognizer) {
         let lbl = sender
         if lbl.view?.backgroundColor == grayColor {
             lbl.view!.backgroundColor = ownColor
+            scrollView.contentSize.height = 1300
         }
         else {
             lbl.view!.backgroundColor = grayColor
+            scrollView.contentSize.height = self.view.frame.height
         }
     }
-  
 
+    /*
+    func tapLbl() {
+        if amenitiesBtn.backgroundColor == grayColor {
+            amenitiesBtn.backgroundColor = ownColor
+            scrollView.contentSize.height = 1300
+        }
+        else {
+            amenitiesBtn.backgroundColor = grayColor
+            scrollView.contentSize.height = self.view.frame.height
+        }
+    } */
+    
+
+    
+    //-----------------------------------------
+    
+    //picker did selected sime value from it
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
 }
 
