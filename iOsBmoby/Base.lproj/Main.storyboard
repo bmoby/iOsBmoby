@@ -580,10 +580,15 @@
                                         <color key="maximumTrackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="thumbTintColor" red="0.8980392157" green="0.38431372549999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </slider>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="checkin time" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="epj-jM-i7n">
-                                        <rect key="frame" x="74" y="219" width="226" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="min" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="7fQ-el-eh6">
+                                        <rect key="frame" x="187" y="219" width="115" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="hour" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="2Ac-IB-IBQ">
+                                        <rect key="frame" x="74" y="220" width="111" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -609,8 +614,9 @@
                         <outlet property="bedroomLbl" destination="J7L-bM-8G9" id="7Sa-ac-YSA"/>
                         <outlet property="bmobyImg" destination="myN-pB-k0M" id="qt6-Jx-tGJ"/>
                         <outlet property="breakfastLbl" destination="3GB-gI-aUs" id="sbw-le-iH8"/>
-                        <outlet property="checkinHourTxt" destination="epj-jM-i7n" id="0Ed-66-2HW"/>
+                        <outlet property="checkinHourTxt" destination="2Ac-IB-IBQ" id="Bu5-Cm-nqV"/>
                         <outlet property="checkinLbl" destination="Vau-kr-jfJ" id="UIh-8v-AY8"/>
+                        <outlet property="checkinMinTxt" destination="7fQ-el-eh6" id="MHU-wn-kfE"/>
                         <outlet property="chineseLbl" destination="EUJ-Hl-ikv" id="XdQ-JR-bHX"/>
                         <outlet property="dryerLbl" destination="uCk-88-ClF" id="ZOa-bw-ATj"/>
                         <outlet property="dutchLbl" destination="aMl-F1-0pq" id="tHp-ie-Umb"/>
@@ -626,6 +632,7 @@
                         <outlet property="gymLbl" destination="sFW-PJ-mju" id="J0c-fm-nqw"/>
                         <outlet property="hairDryerLbl" destination="CVa-BX-vTa" id="rIe-vA-Klw"/>
                         <outlet property="hammamLbl" destination="yB1-EQ-fmk" id="E3y-sj-kJZ"/>
+                        <outlet property="homeView" destination="8bC-Xf-vdC" id="0nS-RE-hf5"/>
                         <outlet property="hostLanguagesLbl" destination="Wac-p1-mMK" id="JFS-sD-Lo1"/>
                         <outlet property="indoorFireplaceLbl" destination="M8E-ex-ecT" id="GT4-dG-Nqn"/>
                         <outlet property="intercomLbl" destination="rAG-Lf-cZg" id="uQl-JH-yag"/>
@@ -667,7 +674,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1183" y="297"/>
+            <point key="canvasLocation" x="1194" y="313"/>
         </scene>
         <!--Item-->
         <scene sceneID="VUn-3r-9AA">
