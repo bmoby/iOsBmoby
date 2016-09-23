@@ -24,6 +24,7 @@
 		F20A3BE21D94491D008DA808 /* citiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20A3BE11D94491D008DA808 /* citiesCell.swift */; };
 		F20A3BE41D944933008DA808 /* citiesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20A3BE31D944933008DA808 /* citiesVC.swift */; };
 		F20A3BE61D94493D008DA808 /* citiesHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20A3BE51D94493D008DA808 /* citiesHeader.swift */; };
+		F2200F561D94527800B57F61 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2200F551D94527800B57F61 /* test.swift */; };
 		F2FB395A1D918C4E00FEB57F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB39591D918C4E00FEB57F /* AppDelegate.swift */; };
 		F2FB395F1D918C4E00FEB57F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2FB395D1D918C4E00FEB57F /* Main.storyboard */; };
 		F2FB39641D918C4E00FEB57F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2FB39621D918C4E00FEB57F /* LaunchScreen.storyboard */; };
@@ -48,6 +49,7 @@
 		F20A3BE11D94491D008DA808 /* citiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = citiesCell.swift; sourceTree = "<group>"; };
 		F20A3BE31D944933008DA808 /* citiesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = citiesVC.swift; sourceTree = "<group>"; };
 		F20A3BE51D94493D008DA808 /* citiesHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = citiesHeader.swift; sourceTree = "<group>"; };
+		F2200F551D94527800B57F61 /* test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		F2FB39561D918C4E00FEB57F /* iOsBmoby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOsBmoby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2FB39591D918C4E00FEB57F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2FB395E1D918C4E00FEB57F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				F20A3BE11D94491D008DA808 /* citiesCell.swift */,
 				F20A3BE31D944933008DA808 /* citiesVC.swift */,
 				8704A38D1D92811200004A6E /* homeVC.swift */,
+				F2200F551D94527800B57F61 /* test.swift */,
 			);
 			path = iOsBmoby;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				F2FB395A1D918C4E00FEB57F /* AppDelegate.swift in Sources */,
 				F20A3BE21D94491D008DA808 /* citiesCell.swift in Sources */,
 				F20A3BE61D94493D008DA808 /* citiesHeader.swift in Sources */,
+				F2200F561D94527800B57F61 /* test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

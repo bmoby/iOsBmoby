@@ -597,7 +597,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="rom-dN-zQU"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="vir-4c-TR6"/>
                     <navigationItem key="navigationItem" id="MMR-ih-ouV"/>
                     <connections>
                         <outlet property="addBathroomBtn" destination="mQZ-w1-I0x" id="CFc-lc-RLf"/>
@@ -676,7 +676,7 @@
             </objects>
             <point key="canvasLocation" x="1194" y="313"/>
         </scene>
-        <!--Item-->
+        <!--Choose a city-->
         <scene sceneID="VUn-3r-9AA">
             <objects>
                 <collectionViewController storyboardIdentifier="checkCVC" useStoryboardIdentifierAsRestorationIdentifier="YES" clearsSelectionOnViewWillAppear="NO" id="ErF-Tl-w2K" customClass="citiesVC" customModule="iOsBmoby" customModuleProvider="target" sceneMemberID="viewController">
@@ -691,7 +691,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" reuseIdentifier="CitiesCell" id="4PT-8f-LkO" customClass="citiesCell" customModule="iOsBmoby" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="154" width="154" height="149"/>
+                                <rect key="frame" x="0.0" y="218" width="154" height="149"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="154" height="149"/>
@@ -714,38 +714,31 @@
                                 <connections>
                                     <outlet property="citiesCellImg" destination="V4m-vg-qFl" id="0N0-V7-8cI"/>
                                     <outlet property="citiesCellNameLbl" destination="dro-jx-WID" id="ten-bV-IUr"/>
+                                    <segue destination="BYZ-38-t0r" kind="push" id="t0g-NS-UA7"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CitiesHeader" id="GXp-B9-Hne" customClass="citiesHeader" customModule="iOsBmoby" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="154"/>
+                            <rect key="frame" x="0.0" y="64" width="320" height="154"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a city" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jwn-tb-3gk">
-                                    <rect key="frame" x="8" y="24" width="252" height="51"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="city name" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" id="mfy-Kf-qvQ">
-                                    <rect key="frame" x="8" y="71" width="304" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EmV-s5-xAl">
-                                    <rect key="frame" x="115" y="104" width="90" height="30"/>
+                                    <rect key="frame" x="115" y="97" width="90" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Appear there"/>
                                     <connections>
                                         <action selector="chooseCityBtnClicked:" destination="GXp-B9-Hne" eventType="touchUpInside" id="qsc-d3-aL8"/>
                                     </connections>
                                 </button>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="city name" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" id="mfy-Kf-qvQ">
+                                    <rect key="frame" x="8" y="59" width="304" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
                             </subviews>
                             <connections>
                                 <outlet property="citiesHeaderSubmitBtn" destination="EmV-s5-xAl" id="cQ9-m0-uGa"/>
-                                <outlet property="citiesHeaderTitleLbl" destination="Jwn-tb-3gk" id="AVa-JG-J26"/>
                                 <outlet property="citiesHeaderTxtField" destination="mfy-Kf-qvQ" id="KFZ-NI-wCd"/>
                             </connections>
                         </collectionReusableView>
@@ -754,30 +747,30 @@
                             <outlet property="delegate" destination="ErF-Tl-w2K" id="W6V-Zv-UoM"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Item" id="IgV-6q-J1d"/>
+                    <navigationItem key="navigationItem" title="Choose a city" id="3BE-DD-sTC"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RtR-Y0-XkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1204" y="1065"/>
+            <point key="canvasLocation" x="1308" y="319"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="Ae4-qW-eea">
+        <!--Item-->
+        <scene sceneID="Vng-Ws-y5P">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="p6f-5C-qIc" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HXO-Kw-Qym" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="fMF-yN-5HB"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="uSS-Bj-vus"/>
-                    <tabBar key="tabBar" clipsSubviews="YES" contentMode="scaleToFill" id="BgT-n9-W70">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gZL-rK-k4Y">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Qto-xg-71O"/>
-                        <segue destination="ErF-Tl-w2K" kind="relationship" relationship="viewControllers" id="yft-CJ-Qvb"/>
+                        <segue destination="ErF-Tl-w2K" kind="relationship" relationship="rootViewController" id="QHY-mR-n62"/>
                     </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Keh-v8-dI3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SCK-lG-G2P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="807" y="319"/>
+            <point key="canvasLocation" x="776" y="319"/>
         </scene>
     </scenes>
     <resources>
