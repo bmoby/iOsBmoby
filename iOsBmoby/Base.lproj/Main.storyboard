@@ -696,7 +696,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1194" y="313"/>
+            <point key="canvasLocation" x="1834" y="333"/>
         </scene>
         <!--map view-->
         <scene sceneID="pGq-rD-g3d">
@@ -720,7 +720,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kb1-e6-FDm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2648" y="4"/>
+            <point key="canvasLocation" x="2816" y="16"/>
         </scene>
         <!--listingAndMap-->
         <scene sceneID="VMh-33-RiH">
@@ -738,7 +738,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HLW-u1-qnv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2108" y="320"/>
+            <point key="canvasLocation" x="2288" y="320"/>
         </scene>
         <!--listing-->
         <scene sceneID="lT8-Hh-Z8h">
@@ -773,7 +773,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AD7-yK-eMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2647" y="640"/>
+            <point key="canvasLocation" x="2816" y="640"/>
         </scene>
         <!--Choose a city-->
         <scene sceneID="VUn-3r-9AA">
@@ -790,7 +790,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" reuseIdentifier="CitiesCell" id="4PT-8f-LkO" customClass="citiesCell" customModule="iOsBmoby" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="154" width="154" height="149"/>
+                                <rect key="frame" x="0.0" y="218" width="154" height="149"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="154" height="149"/>
@@ -818,7 +818,7 @@
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CitiesHeader" id="GXp-B9-Hne" customClass="citiesHeader" customModule="iOsBmoby" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="154"/>
+                            <rect key="frame" x="0.0" y="64" width="320" height="154"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EmV-s5-xAl">
@@ -852,7 +852,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RtR-Y0-XkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1308" y="319"/>
+            <point key="canvasLocation" x="1408" y="333"/>
         </scene>
         <!--Item-->
         <scene sceneID="lRu-NO-NuG">
@@ -911,7 +911,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qJm-d8-ppV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="534" y="317"/>
+            <point key="canvasLocation" x="972" y="333"/>
         </scene>
         <!--Item-->
         <scene sceneID="Vng-Ws-y5P">
@@ -930,7 +930,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SCK-lG-G2P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="908" y="320"/>
+            <point key="canvasLocation" x="972" y="998"/>
         </scene>
     </scenes>
     <resources>
@@ -939,7 +939,7 @@
         <image name="map" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mfN-6F-zCL"/>
-        <segue reference="0Wv-UM-gko"/>
+        <segue reference="QHY-mR-n62"/>
+        <segue reference="t0g-NS-UA7"/>
     </inferredMetricsTieBreakers>
 </document>
