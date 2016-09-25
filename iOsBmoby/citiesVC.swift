@@ -18,6 +18,8 @@ class citiesVC: UICollectionViewController {
     var citiesNames = [String]()
     var citiesImages = [PFFile]()
     var keyboard = CGRect()
+    
+    var slider = RangeSlider()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,7 +30,7 @@ class citiesVC: UICollectionViewController {
         refresher = UIRefreshControl()
         refresher.addTarget(self, action: #selector(citiesVC.refresh), forControlEvents: UIControlEvents.ValueChanged)
         collectionView?.addSubview(refresher)
-        
+        self.view.addSubview(slider)
         // Action to load the collection of cities with icons and names from DB
         loadCities()
     }

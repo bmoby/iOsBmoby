@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="HXO-Kw-Qym">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="eJf-pp-GGQ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="epL-dF-oba">
+            <objects>
+                <tabBarController id="wwt-WP-M75" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Cu3-Ye-fI5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="mfN-6F-zCL"/>
+                        <segue destination="ErF-Tl-w2K" kind="relationship" relationship="viewControllers" id="0Wv-UM-gko"/>
+                        <segue destination="Nzx-Lw-tZd" kind="relationship" relationship="viewControllers" id="px4-RQ-3OO"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oVW-9h-yos" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1408" y="-502"/>
+        </scene>
         <!--homeVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -27,6 +46,9 @@
                                         <color key="backgroundColor" red="0.89803921568627454" green="0.38431372549019605" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="find hosts"/>
+                                        <connections>
+                                            <segue destination="eJf-pp-GGQ" kind="modal" id="Xmf-oh-CqW"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iiR-ZM-A4h">
                                         <rect key="frame" x="20" y="285" width="280" height="30"/>
@@ -633,6 +655,83 @@
             </objects>
             <point key="canvasLocation" x="1695" y="319"/>
         </scene>
+        <!--map view-->
+        <scene sceneID="pGq-rD-g3d">
+            <objects>
+                <viewController title="map view" id="G85-83-Qrw" customClass="searchHostMapVC" customModule="iOsBmoby" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V6M-Ve-kdQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="63P-ZC-dZ0">
+                                <rect key="frame" x="0.0" y="20" width="320" height="498"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" tag="2" title="map" image="map" id="Q7R-AE-TBB"/>
+                    <connections>
+                        <outlet property="hostsMap" destination="63P-ZC-dZ0" id="6Si-7a-pjb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kb1-e6-FDm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2648" y="4"/>
+        </scene>
+        <!--listingAndMap-->
+        <scene sceneID="VMh-33-RiH">
+            <objects>
+                <tabBarController title="listingAndMap" id="eJf-pp-GGQ" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Aqu-vN-kX3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="G85-83-Qrw" kind="relationship" relationship="viewControllers" id="KSr-sY-07v"/>
+                        <segue destination="Wc1-Sk-QqG" kind="relationship" relationship="viewControllers" id="9pP-16-BN1"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HLW-u1-qnv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2108" y="320"/>
+        </scene>
+        <!--listing-->
+        <scene sceneID="lT8-Hh-Z8h">
+            <objects>
+                <collectionViewController id="Wc1-Sk-QqG" customClass="searchHostListingVC" customModule="iOsBmoby" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="6UQ-GI-Xe1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vc0-sr-kmd">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1nc-8c-G9G">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="Wc1-Sk-QqG" id="pf7-28-uQV"/>
+                            <outlet property="delegate" destination="Wc1-Sk-QqG" id="Iqp-ZK-mJd"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" tag="1" title="listing" image="listing" id="YfP-ux-YI7"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AD7-yK-eMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2647" y="640"/>
+        </scene>
         <!--Choose a city-->
         <scene sceneID="VUn-3r-9AA">
             <objects>
@@ -648,7 +747,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" reuseIdentifier="CitiesCell" id="4PT-8f-LkO" customClass="citiesCell" customModule="iOsBmoby" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="218" width="154" height="149"/>
+                                <rect key="frame" x="0.0" y="154" width="154" height="149"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="154" height="149"/>
@@ -676,7 +775,7 @@
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CitiesHeader" id="GXp-B9-Hne" customClass="citiesHeader" customModule="iOsBmoby" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="64" width="320" height="154"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="154"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EmV-s5-xAl">
@@ -685,6 +784,7 @@
                                     <state key="normal" title="Appear there"/>
                                     <connections>
                                         <action selector="chooseCityBtnClicked:" destination="GXp-B9-Hne" eventType="touchUpInside" id="qsc-d3-aL8"/>
+                                        <segue destination="BYZ-38-t0r" kind="push" id="h3l-mb-4bq"/>
                                     </connections>
                                 </button>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="city name" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" id="mfy-Kf-qvQ">
@@ -704,11 +804,71 @@
                             <outlet property="delegate" destination="ErF-Tl-w2K" id="W6V-Zv-UoM"/>
                         </connections>
                     </collectionView>
+                    <tabBarItem key="tabBarItem" title="Item" id="VTR-RQ-Jx7"/>
                     <navigationItem key="navigationItem" title="Choose a city" id="3BE-DD-sTC"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RtR-Y0-XkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1308" y="319"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="lRu-NO-NuG">
+            <objects>
+                <viewController id="Nzx-Lw-tZd" customClass="loginVC" customModule="iOsBmoby" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yrf-vV-P2A">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YE1-t7-UgX">
+                                <rect key="frame" x="147" y="56" width="34" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter your email" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" id="nfW-ri-3ld">
+                                <rect key="frame" x="20" y="99" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="j5Q-dl-DyE">
+                                <rect key="frame" x="143" y="210" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="login"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vXT-JF-Qan">
+                                <rect key="frame" x="132" y="248" width="57" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Register"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NnT-FZ-BDf">
+                                <rect key="frame" x="90" y="286" width="140" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Forgot my password"/>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter your password" textAlignment="natural" minimumFontSize="17" id="2rK-VQ-coN">
+                                <rect key="frame" x="20" y="145" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="QUF-OX-y87"/>
+                    <connections>
+                        <outlet property="forgotPasswordBtn" destination="NnT-FZ-BDf" id="Os1-57-rEE"/>
+                        <outlet property="loginBtn" destination="j5Q-dl-DyE" id="wcq-U5-sbQ"/>
+                        <outlet property="loginEmailTxtField" destination="nfW-ri-3ld" id="CRb-Fd-4IA"/>
+                        <outlet property="passwordTxtField" destination="2rK-VQ-coN" id="fXf-IU-alb"/>
+                        <outlet property="registerBtn" destination="vXT-JF-Qan" id="uPR-ha-69l"/>
+                        <outlet property="titleLbl" destination="YE1-t7-UgX" id="spZ-zt-t3B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qJm-d8-ppV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="534" y="317"/>
         </scene>
         <!--Item-->
         <scene sceneID="Vng-Ws-y5P">
@@ -727,10 +887,16 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SCK-lG-G2P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="776" y="319"/>
+            <point key="canvasLocation" x="908" y="320"/>
         </scene>
     </scenes>
     <resources>
         <image name="iphone5" width="149" height="45"/>
+        <image name="listing" width="30" height="30"/>
+        <image name="map" width="32" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="mfN-6F-zCL"/>
+        <segue reference="0Wv-UM-gko"/>
+    </inferredMetricsTieBreakers>
 </document>
