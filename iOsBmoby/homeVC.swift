@@ -11,15 +11,23 @@ import Parse
 
 class homeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    @IBOutlet weak var checkingHostsAvailabilityLbl: UILabel!
+    @IBOutlet weak var checkingCityLbl: UILabel!
+    
+    
     //Chage the numbers pushing the buttton "+" and "-"
     var nb = Int()
     
-    //To show hidden itmes
-    var showAmenities = [UILabel]()
-    var showAmenitiesBtn = [UIButton]()
+    //Slider var 
+    var slider: RangeSlider = RangeSlider()
+
+    //amenities and hosts languafges View
+    @IBOutlet weak var amenitiesView: UIView!
+    @IBOutlet weak var hostLanguagesView: UIView!
+    
     
     //To do some actions on tapping the label items
-    var lbl = [UILabel]()
+    var lblChoose = [UILabel]()
     
     var ownColor = UIColor(red: 228.0/255.0, green: 98.0/255.0, blue: 92.0/255.0, alpha: 1)
     var grayColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1)
@@ -110,7 +118,7 @@ class homeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var jacuzziLbl: UILabel!
     
     //Host spoken langages 
-    @IBOutlet weak var hostLanguagesLbl: UILabel!
+    @IBOutlet weak var hostLanguagesBtn: UIButton!
     @IBOutlet weak var englishLbl: UILabel!
     @IBOutlet weak var frenchLbl: UILabel!
     @IBOutlet weak var spanishLbl: UILabel!
@@ -136,6 +144,10 @@ class homeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Checking city 
+        checkingCity()
+        
+        
         //Scroll view 
         scrollView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
         var contentRect = CGRectZero
@@ -143,6 +155,18 @@ class homeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
             contentRect = CGRectUnion(contentRect, view.frame)
         }
         self.scrollView.contentSize = contentRect.size
+        
+    
+        //Slider 
+        slider.frame = CGRectMake(22, 130, self.view.frame.width - 60, 20)
+        slider.minimumValue = 0
+        slider.maximumValue = 100
+        slider.lowerValue = 20
+        slider.upperValue = 70
+        slider.trackHighlightTintColor = ownColor
+        slider.thumbTintColor = UIColor.whiteColor()
+        slider.curvaceousness = 1.0
+        self.scrollView.addSubview(slider)
         
         //Create hour picker 
         hourPicker = UIPickerView()
@@ -153,23 +177,27 @@ class homeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         checkinHourTxt.inputView = hourPicker
         checkinMinTxt.inputView = hourPicker
         
-        
-        // Show amenities array
-        showAmenities = [ nbBedroomLbl, bedroomLbl, nbBathroomLbl, bathroomLbl,nbBedLbl, bedLbl,kitchenLbl, breakfastLbl, wifiInternetLbl, wheelchairAccessible, tvLbl, lockForBedroom, elevatorLbl, dryerLbl, washerLbl, ironLbl, hairDryerLbl, smokingAllowedLbl, intercomLbl, airConditioningLbl, familyKidLbl, petsAllowed, parkignLbl, indoorFireplaceLbl, gymLbl, poolLbl, saunaLbl, hammamLbl, jacuzziLbl, hostLanguagesLbl,englishLbl, frenchLbl, spanishLbl, germanLbl, chineseLbl, italianLbl, portugueseLbl, dutchLbl, russianLbl, arabicLbl, japaneseLbl]
-        
-        //Show amenities' buttons 
-        showAmenitiesBtn = [removeBedroomBtn, addBedroomBtn, removeBathroomBtn, addBathroomBtn,  addBedBtn, removeBedBtn, addBedBtn]
-        
-        lbl = [sharedRoomLbl, privateRoomLbl, entirePlaceLbl, kitchenLbl, breakfastLbl, wifiInternetLbl, wheelchairAccessible, tvLbl, lockForBedroom, elevatorLbl, dryerLbl, washerLbl, ironLbl, hairDryerLbl, smokingAllowedLbl, intercomLbl, airConditioningLbl, familyKidLbl, petsAllowed, parkignLbl, indoorFireplaceLbl, gymLbl, poolLbl, saunaLbl, hammamLbl, jacuzziLbl , englishLbl, frenchLbl, spanishLbl, germanLbl, chineseLbl, italianLbl, portugueseLbl, dutchLbl, russianLbl, arabicLbl, japaneseLbl]
+        lblChoose = [sharedRoomLbl, privateRoomLbl, entirePlaceLbl, kitchenLbl, breakfastLbl, wifiInternetLbl, wheelchairAccessible, tvLbl, lockForBedroom, elevatorLbl, dryerLbl, washerLbl, ironLbl, hairDryerLbl, smokingAllowedLbl, intercomLbl, airConditioningLbl, familyKidLbl, petsAllowed, parkignLbl, indoorFireplaceLbl, gymLbl, poolLbl, saunaLbl, hammamLbl, jacuzziLbl , englishLbl, frenchLbl, spanishLbl, germanLbl, chineseLbl, italianLbl, portugueseLbl, dutchLbl, russianLbl, arabicLbl, japaneseLbl]
         
         // Tap gesture recognizer for "all amenities"
-        for object in lbl {
+        for object in lblChoose {
             let tapLbl =  UITapGestureRecognizer(target: self, action: #selector(homeVC.tapLbl(_:)))
             tapLbl.numberOfTapsRequired = 1
             object.userInteractionEnabled = true
             object.addGestureRecognizer(tapLbl)
         }
-        
+    }
+    
+    // checking city function -------------------------------------------------------------------------------
+    func checkingCity() {
+        if currentCity == nil {
+            checkingCityLbl.text = nil
+            checkingCityLbl.hidden = true
+            checkingHostsAvailabilityLbl.hidden = true
+        }
+        else {
+            checkingCityLbl.text = currentCity
+        }
     }
     
     
@@ -280,30 +308,37 @@ class homeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     // Show amenities if amenities button clicked-----------------------------------------------------------
     @IBAction func amenitiesBtn_clicked(sender: AnyObject) {
-        amenitiesBtn.hidden = true
-        findHostsBtn.hidden = true
-        
-        //show labels
-        for object in showAmenities {
-        object.hidden = false
+        if amenitiesView.hidden {
+            amenitiesView.hidden = false
         }
-        
-        // show buttons
-        for object in showAmenitiesBtn {
-            object.hidden = false
+        else {
+            amenitiesView.hidden = true
         }
     }
     
     // choose amenity ---------------------------------------------------------------------------------------
     func tapLbl(sender: UITapGestureRecognizer) {
-        let lbl = sender
-        if lbl.view?.backgroundColor == grayColor {
-            lbl.view!.backgroundColor = ownColor
+        let lblChoose = sender
+        if lblChoose.view?.backgroundColor == grayColor {
+            lblChoose.view!.backgroundColor = ownColor
         }
         else {
-            lbl.view!.backgroundColor = grayColor
+            lblChoose.view!.backgroundColor = grayColor
         }
     }
+    
+    //choose host languages----------------------------------------------------------------------------------
+    @IBAction func hostLanguagesBtn_clicked(sender: AnyObject) {
+        if hostLanguagesView.hidden {
+            hostLanguagesView.hidden = false
+        }
+        else {
+            hostLanguagesView.hidden = true
+        }
+    }
+    
+    
+    
     
     //-----------------------------------------
     

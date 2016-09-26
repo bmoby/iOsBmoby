@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8704A38E1D92811200004A6E /* homeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8704A38D1D92811200004A6E /* homeVC.swift */; };
+		87CB8AEA1D98335800B2F492 /* createListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CB8AE91D98335800B2F492 /* createListingVC.swift */; };
 		F20282A01D919B7700BFA772 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F202829F1D919B7700BFA772 /* libsqlite3.tbd */; };
 		F20282A21D919B8C00BFA772 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F20282A11D919B8C00BFA772 /* libz.tbd */; };
 		F20282A41D919B9B00BFA772 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F20282A31D919B9B00BFA772 /* AudioToolbox.framework */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		8704A38D1D92811200004A6E /* homeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeVC.swift; sourceTree = "<group>"; };
+		87CB8AE91D98335800B2F492 /* createListingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = createListingVC.swift; sourceTree = "<group>"; };
 		F202829F1D919B7700BFA772 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		F20282A11D919B8C00BFA772 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		F20282A31D919B9B00BFA772 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -140,6 +142,7 @@
 				F2200F5D1D95807000B57F61 /* searchHostMapVC.swift */,
 				F2200F611D959CC400B57F61 /* searchHostListingVC.swift */,
 				F2200F631D97C5DE00B57F61 /* loginVC.swift */,
+				87CB8AE91D98335800B2F492 /* createListingVC.swift */,
 			);
 			path = iOsBmoby;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				8704A38E1D92811200004A6E /* homeVC.swift in Sources */,
 				F2200F5E1D95807000B57F61 /* searchHostMapVC.swift in Sources */,
 				F20282BB1D91BE4900BFA772 /* listing.swift in Sources */,
+				87CB8AEA1D98335800B2F492 /* createListingVC.swift in Sources */,
 				F2200F621D959CC400B57F61 /* searchHostListingVC.swift in Sources */,
 				F20A3BE41D944933008DA808 /* citiesVC.swift in Sources */,
 				F2FB395A1D918C4E00FEB57F /* AppDelegate.swift in Sources */,
