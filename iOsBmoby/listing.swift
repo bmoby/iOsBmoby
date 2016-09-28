@@ -14,32 +14,32 @@ class listing{
     var latitude :String = "0"
     var streetNb :String = "0"
     var streetName :String = "0"
-    var airConditioning :Bool = false
-    var animalsAllowed :Bool = false
+    var airConditioning :String = "0"
+    var animalsAllowed :String = "0"
     var bathrooms :String = "0"
     var bedrooms :String = "0"
     var beds :String = "0"
-    var breakfast :Bool = false
+    var breakfast :String = "0"
     var checkIn :String = "0"
     var city :String = "0"
     var country :String = "0"
-    var elevator :Bool = false
-    var entireHome :Bool = false
+    var elevator :String = "0"
+    var entireHome :String = "0"
     var guests :String = "0"
-    var gym :Bool = false
-    var hairDryer :Bool = false
-    var hammam :Bool = false
-    var hostLanguageArabic :Bool = false
-    var hostLanguageChina :Bool = false
-    var hostLanguageDutch :Bool = false
-    var hostLanguageEnglish :Bool = false
-    var hostLanguageFrench :Bool = false
-    var hostLanguageGerman :Bool = false
-    var hostLanguageItalien :Bool = false
-    var hostLanguageJapanese :Bool = false
-    var hostLanguagePortuguese :Bool = false
-    var hostLanguageRussian :Bool = false
-    var hostLanguageSpanish :Bool = false
+    var gym :String = "0"
+    var hairDryer :String = "0"
+    var hammam :String = "0"
+    var hostLanguageArabic :String = "0"
+    var hostLanguageChina :String = "0"
+    var hostLanguageDutch :String = "0"
+    var hostLanguageEnglish :String = "0"
+    var hostLanguageFrench :String = "0"
+    var hostLanguageGerman :String = "0"
+    var hostLanguageItalien :String = "0"
+    var hostLanguageJapanese :String = "0"
+    var hostLanguagePortuguese :String = "0"
+    var hostLanguageRussian :String = "0"
+    var hostLanguageSpanish :String = "0"
     var image01 : UIImageView!
     var image02 : UIImageView!
     var image03 : UIImageView!
@@ -49,27 +49,27 @@ class listing{
     var image07 : UIImageView!
     var image08 : UIImageView!
     var image09 : UIImageView!
-    var intercom :Bool = false
-    var iron :Bool = false
-    var jacuzzi :Bool = false
-    var kidFamilyFriendly :Bool = false
-    var kitchen :Bool = false
-    var lockOnBedroomDoor :Bool = false
+    var intercom :String = "0"
+    var iron :String = "0"
+    var jacuzzi :String = "0"
+    var kidFamilyFriendly :String = "0"
+    var kitchen :String = "0"
+    var lockOnBedroomDoor :String = "0"
     var nights :String = "0"
-    var parking :Bool = false
-    var pool :Bool = false
+    var parking :String = "0"
+    var pool :String = "0"
     var price :String = "0"
-    var privateRoom :Bool = false
+    var privateRoom :String = "0"
     var province :String = "0"
-    var sauna :Bool = false
-    var sharedRoom :Bool = false
-    var smokingAllowed :Bool = false
+    var sauna :String = "0"
+    var sharedRoom :String = "0"
+    var smokingAllowed :String = "0"
     var state :String = "0"
-    var tv :Bool = false
+    var tv :String = "0"
     var uuid :String = "0"
-    var washer :Bool = false
-    var wheelchairAccessible :Bool = false
-    var wifiInternet :Bool = false
+    var washer :String = "0"
+    var wheelchairAccessible :String = "0"
+    var wifiInternet :String = "0"
     var zipPostal :String = "0"
     
     

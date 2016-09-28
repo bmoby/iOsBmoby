@@ -9,28 +9,36 @@
 import UIKit
 import Parse
 
+//Colors
+var ownColor = UIColor(red: 228.0/255.0, green: 98.0/255.0, blue: 92.0/255.0, alpha: 1)
+var grayColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1)
+
+
+
 class homeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    @IBOutlet weak var checkingHostsAvailabilityLbl: UILabel!
-    @IBOutlet weak var checkingCityLbl: UILabel!
+    //Pickerview and picker data
+    var hour:String = ""
+    var minute:String = ""
+    var checkinPicker: UIPickerView!
+    var checkinData = [["any hour","00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"], ["any minute","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60"] ]
     
     
+    //------------------------------------------Declared variables------------------------------------------------
     //Chage the numbers pushing the buttton "+" and "-"
     var nb = Int()
-    
-    //Slider var 
-    var slider: RangeSlider = RangeSlider()
-
-    //amenities and hosts languafges View
-    @IBOutlet weak var amenitiesView: UIView!
-    @IBOutlet weak var hostLanguagesView: UIView!
-    
     
     //To do some actions on tapping the label items
     var lblChoose = [UILabel]()
     
-    var ownColor = UIColor(red: 228.0/255.0, green: 98.0/255.0, blue: 92.0/255.0, alpha: 1)
-    var grayColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1)
+    //-------------------------------------------Outlets------------------------------------------------------------
+    //send from checking page
+    @IBOutlet weak var checkingHostsAvailabilityLbl: UILabel!
+    @IBOutlet weak var checkingCityLbl: UILabel!
+    
+    //amenities and hosts languafges View
+    @IBOutlet weak var amenitiesView: UIView!
+    @IBOutlet weak var hostLanguagesView: UIView!
     
     @IBOutlet var homeView: UIView!
     //Scrollview
@@ -39,9 +47,8 @@ class homeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     // Bmoby logo
     @IBOutlet weak var bmobyImg: UIImageView!
     
-    // Listing price
-    
-    @IBOutlet weak var priceSlider: UISlider!
+    //Slider var
+    var slider: RangeSlider = RangeSlider()
     
     // Number of guests
     @IBOutlet weak var guestIconLbl: UILabel!
@@ -79,13 +86,11 @@ class homeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var removeBedroomBtn: UIButton!
     @IBOutlet weak var addBedroomBtn: UIButton!
     
-    
     //Number of bathrooms
     @IBOutlet weak var nbBathroomLbl: UILabel!
     @IBOutlet weak var bathroomLbl: UILabel!
     @IBOutlet weak var removeBathroomBtn: UIButton!
     @IBOutlet weak var addBathroomBtn: UIButton!
-    
     
     //Number of beds
     @IBOutlet weak var nbBedLbl: UILabel!
@@ -134,19 +139,17 @@ class homeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     // Launch research of listing
     @IBOutlet weak var findHostsBtn: UIButton!
     
-    //Pickerview and picker data
-    var hour:String = ""
-    var min:String = ""
-    var hourPicker : UIPickerView!
-    let checkinData = [["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"], ["01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60"] ]
     
+    //Arrays collecting data to send a request
+    var chooseData = [String]()
+    var listingData: listing = listing()
     
+    //default function
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Checking city 
         checkingCity()
-        
         
         //Scroll view 
         scrollView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
@@ -168,15 +171,16 @@ class homeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         slider.curvaceousness = 1.0
         self.scrollView.addSubview(slider)
         
-        //Create hour picker 
-        hourPicker = UIPickerView()
-        hourPicker.dataSource = self
-        hourPicker.delegate = self
-        hourPicker.backgroundColor = UIColor.groupTableViewBackgroundColor()
-        hourPicker.showsSelectionIndicator = true
-        checkinHourTxt.inputView = hourPicker
-        checkinMinTxt.inputView = hourPicker
+        //Create checkin picker
+        checkinPicker = UIPickerView()
+        checkinPicker.dataSource = self
+        checkinPicker.delegate = self
+        checkinPicker.backgroundColor = UIColor.groupTableViewBackgroundColor()
+        checkinPicker.showsSelectionIndicator = true
+        checkinHourTxt.inputView = checkinPicker
+        checkinMinTxt.inputView = checkinPicker
         
+        // choose optional data: amenities and languqges
         lblChoose = [sharedRoomLbl, privateRoomLbl, entirePlaceLbl, kitchenLbl, breakfastLbl, wifiInternetLbl, wheelchairAccessible, tvLbl, lockForBedroom, elevatorLbl, dryerLbl, washerLbl, ironLbl, hairDryerLbl, smokingAllowedLbl, intercomLbl, airConditioningLbl, familyKidLbl, petsAllowed, parkignLbl, indoorFireplaceLbl, gymLbl, poolLbl, saunaLbl, hammamLbl, jacuzziLbl , englishLbl, frenchLbl, spanishLbl, germanLbl, chineseLbl, italianLbl, portugueseLbl, dutchLbl, russianLbl, arabicLbl, japaneseLbl]
         
         // Tap gesture recognizer for "all amenities"
@@ -186,7 +190,9 @@ class homeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
             object.userInteractionEnabled = true
             object.addGestureRecognizer(tapLbl)
         }
+        
     }
+    
     
     // checking city function -------------------------------------------------------------------------------
     func checkingCity() {
@@ -225,7 +231,6 @@ class homeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         }
     }
     
-    
     @IBAction func addNightBtn_clicked(sender: AnyObject) {
         nb = Int(nbNightLbl.text!)!
         nbNightLbl.text = String(nb+1)
@@ -253,14 +258,14 @@ class homeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
             hour = checkinData[component][row]
             checkinHourTxt.text = hour
         case 1:
-            min = checkinData[component][row]
-            checkinMinTxt.text = min
+            minute = checkinData[component][row]
+            checkinMinTxt.text = minute 
         default:break
         }
         
         self.view.endEditing(true)
     }
-    
+
     
     //Add or remove number of bedroom------------------------------------------------------------------------
     @IBAction func removeBedroomBtn_clicked(sender: AnyObject) {
@@ -316,16 +321,6 @@ class homeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         }
     }
     
-    // choose amenity ---------------------------------------------------------------------------------------
-    func tapLbl(sender: UITapGestureRecognizer) {
-        let lblChoose = sender
-        if lblChoose.view?.backgroundColor == grayColor {
-            lblChoose.view!.backgroundColor = ownColor
-        }
-        else {
-            lblChoose.view!.backgroundColor = grayColor
-        }
-    }
     
     //choose host languages----------------------------------------------------------------------------------
     @IBAction func hostLanguagesBtn_clicked(sender: AnyObject) {
@@ -338,16 +333,80 @@ class homeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     
+    // choose amenities and languages  -------------------------------------------------------------------------
+    func tapLbl(sender: UITapGestureRecognizer) {
+        let lblChoose = sender
+        if lblChoose.view?.backgroundColor == grayColor {
+            lblChoose.view!.backgroundColor = ownColor
+        }
+        else {
+            lblChoose.view!.backgroundColor = grayColor
+        }
+    }
     
     
-    //-----------------------------------------
+    //Find hosts
+    @IBAction func findHostsBtn_clicked(sender: AnyObject) {
+        
+        // if guest doesn't choose any time for checking in, the default will be "any hour" and "any minute"
+        if checkinHourTxt.text == "hour" {
+            checkinHourTxt.text = "any hour"
+        }
+        
+        if checkinMinTxt.text == "min" {
+            checkinMinTxt.text = "any minute"
+        }
+        
+        let checkinTime = checkinHourTxt.text! + ":" + checkinMinTxt.text!
+        
+        chooseData.removeAll(keepCapacity: false)
+        for object in lblChoose {
+            if object.backgroundColor == ownColor {
+                self.chooseData.append(object.text!)
+            }
+        }
+        print(chooseData)
+        
+        //find related listings
+        let listingQuaery = PFQuery(className: "listings")
+        for object in chooseData {
+            listingQuaery.whereKey("\(object)", equalTo: "yes")
+        }
+        listingQuaery.whereKey("guest", equalTo: nbGuestLbl.text!)
+        listingQuaery.whereKey("night", equalTo: nbNightLbl.text!)
+        listingQuaery.whereKey("checkin", equalTo: checkinTime)
+        listingQuaery.whereKey("bedroom", equalTo: nbBedroomLbl.text!)
+        listingQuaery.whereKey("bathroom", equalTo: nbBathroomLbl.text!)
+        listingQuaery.whereKey("bed", equalTo: nbBedLbl.text!)
+        listingQuaery.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) in
+            if error == nil {
+                
+                for object in objects! {
+                    self.listingData.uuid = (object.valueForKey("uuid") as! String)
+                    self.listingData.guests = (object.valueForKey("guest") as! String)
+                    self.listingData.nights = (object.valueForKey("night") as! String)
+                    self.listingData.checkIn = (object.valueForKey("checkin") as! String)
+                    self.listingData.bedrooms = (object.valueForKey("bedroom") as! String)
+                    self.listingData.bathrooms = (object.valueForKey("bathroom") as! String)
+                    self.listingData.beds = (object.valueForKey("bed") as! String)
+                }
+                print(self.listingData)
+            }
+        }
+        
+    }
     
-    //picker did selected sime value from it
+    
+    
+
+    
+  //---------------------------------------------------------------------------------------------------------------
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+
     
 }
 
