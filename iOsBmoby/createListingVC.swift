@@ -148,6 +148,8 @@ class createListingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     @IBOutlet weak var arabicLbl: UILabel!
     @IBOutlet weak var japaneseLbl: UILabel!
     
+    //Reset default size
+    var scrollViewHeight: CGFloat = 0
     
 
     override func viewDidLoad() {
@@ -155,7 +157,7 @@ class createListingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         //Scroll view
         scrollView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
         scrollView.contentSize.height = 1500
-        
+        scrollViewHeight = scrollView.frame.size.height
         
         //checkin picker
         checkinPicker = UIPickerView()
@@ -164,6 +166,16 @@ class createListingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         checkinPicker.backgroundColor = UIColor.groupTableViewBackgroundColor()
         checkinPicker.showsSelectionIndicator = true
         checkinTxt.inputView = checkinPicker
+        
+        /*
+         let smallerPicker = UIPickerView(frame: CGRectMake(0, 0, 320.0, 50.0))
+          checkinPicker = smallerPicker
+        //picker view size
+        let t0 = CGAffineTransformMakeTranslation(0, checkinPicker.bounds.size.height / 2)
+        let s0 = CGAffineTransformMakeScale(1.0, 0.5)
+        let t1 = CGAffineTransformMakeTranslation(0, -checkinPicker.bounds.size.height / 2)
+        checkinPicker.transform = CGAffineTransformConcat(t0, CGAffineTransformConcat(s0, t1))
+        */
         
         //minimum day/month picker
         minNightPicker = UIPickerView()
@@ -194,6 +206,13 @@ class createListingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         minNightPicker.tag = 1
         maxNightPicker.tag = 2
         accomTypePicker.tag = 3
+        
+        //hide Picker view
+        let hideTap = UITapGestureRecognizer(target: self, action: #selector(createListingVC.hidePicker))
+        hideTap.numberOfTapsRequired = 1
+        self.view.userInteractionEnabled = true
+        self.view.addGestureRecognizer(hideTap)
+        
         
         // choose optional data: amenities and languqges
         lblChoose = [kitchenLbl, breakfastLbl, wifiInternetLbl, wheelchairAccessible, tvLbl, lockForBedroom, elevatorLbl, dryerLbl, washerLbl, ironLbl, hairDryerLbl, smokingAllowedLbl, intercomLbl, airConditioningLbl, familyKidLbl, petsAllowed, parkignLbl, indoorFireplaceLbl, gymLbl, poolLbl, saunaLbl, hammamLbl, jacuzziLbl , englishLbl, frenchLbl, spanishLbl, germanLbl, chineseLbl, italianLbl, portugueseLbl, dutchLbl, russianLbl, arabicLbl, japaneseLbl]
@@ -333,7 +352,6 @@ class createListingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         if pickerView.tag == 0 {
-           
             hour = checkinData[0][pickerView.selectedRowInComponent(0)]
             minute = checkinData[1][pickerView.selectedRowInComponent(1)]
             checkinTxt.text = hour + ":" + minute
@@ -351,10 +369,12 @@ class createListingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         else if pickerView.tag == 3 {
             accommodationTypeTxt.text = accomTypeData[row]
         }
-        
-        
-        
     }
+    
+    func hidePicker(recognizer: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
 
     
     //Add or remove number of bedroom------------------------------------------------------------------------
@@ -413,12 +433,7 @@ class createListingVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         }
     }
 
-    
-    // end editing touching on the srceen --------------------------------------------------------------------------
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.scrollView.endEditing(true)
-    }
-    
+
     /*
     @IBAction func sendDataBtn(sender: AnyObject) {
         
