@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8704A38E1D92811200004A6E /* homeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8704A38D1D92811200004A6E /* homeVC.swift */; };
 		87CB8AEA1D98335800B2F492 /* createListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CB8AE91D98335800B2F492 /* createListingVC.swift */; };
+		E26D884725C0F7A887950586 /* Pods_iOsBmoby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFA338FB1931AB061258D56 /* Pods_iOsBmoby.framework */; };
 		F20282A01D919B7700BFA772 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F202829F1D919B7700BFA772 /* libsqlite3.tbd */; };
 		F20282A21D919B8C00BFA772 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F20282A11D919B8C00BFA772 /* libz.tbd */; };
 		F20282A41D919B9B00BFA772 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F20282A31D919B9B00BFA772 /* AudioToolbox.framework */; };
