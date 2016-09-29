@@ -29,15 +29,20 @@
 		F2200F5E1D95807000B57F61 /* searchHostMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2200F5D1D95807000B57F61 /* searchHostMapVC.swift */; };
 		F2200F621D959CC400B57F61 /* searchHostListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2200F611D959CC400B57F61 /* searchHostListingVC.swift */; };
 		F2200F641D97C5DE00B57F61 /* loginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2200F631D97C5DE00B57F61 /* loginVC.swift */; };
+		F2EF88E71D9D6AB80099F1EE /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EF88E61D9D6AB80099F1EE /* SearchResultsController.swift */; };
 		F2FB395A1D918C4E00FEB57F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FB39591D918C4E00FEB57F /* AppDelegate.swift */; };
 		F2FB395F1D918C4E00FEB57F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2FB395D1D918C4E00FEB57F /* Main.storyboard */; };
 		F2FB39641D918C4E00FEB57F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2FB39621D918C4E00FEB57F /* LaunchScreen.storyboard */; };
 		F2FEDF041D92D3280013027B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2FEDF031D92D3280013027B /* Assets.xcassets */; };
+		FF646477BA6948DC7EE98CE7 /* Pods_iOsBmoby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C91E0651E858BA1F6A145B7 /* Pods_iOsBmoby.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0DBF3CDE53392D244505108A /* Pods-iOsBmoby.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOsBmoby.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOsBmoby/Pods-iOsBmoby.debug.xcconfig"; sourceTree = "<group>"; };
+		7C91E0651E858BA1F6A145B7 /* Pods_iOsBmoby.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOsBmoby.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8704A38D1D92811200004A6E /* homeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeVC.swift; sourceTree = "<group>"; };
 		87CB8AE91D98335800B2F492 /* createListingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = createListingVC.swift; sourceTree = "<group>"; };
+		E522BF86AAC6005362F07991 /* Pods-iOsBmoby.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOsBmoby.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOsBmoby/Pods-iOsBmoby.release.xcconfig"; sourceTree = "<group>"; };
 		F202829F1D919B7700BFA772 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		F20282A11D919B8C00BFA772 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		F20282A31D919B9B00BFA772 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -58,6 +63,7 @@
 		F2200F5D1D95807000B57F61 /* searchHostMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchHostMapVC.swift; sourceTree = "<group>"; };
 		F2200F611D959CC400B57F61 /* searchHostListingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchHostListingVC.swift; sourceTree = "<group>"; };
 		F2200F631D97C5DE00B57F61 /* loginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginVC.swift; sourceTree = "<group>"; };
+		F2EF88E61D9D6AB80099F1EE /* SearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		F2FB39561D918C4E00FEB57F /* iOsBmoby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOsBmoby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2FB39591D918C4E00FEB57F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2FB395E1D918C4E00FEB57F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -83,13 +89,23 @@
 				F20282A21D919B8C00BFA772 /* libz.tbd in Frameworks */,
 				F20282B61D919CB700BFA772 /* Parse.framework in Frameworks */,
 				F20282A01D919B7700BFA772 /* libsqlite3.tbd in Frameworks */,
+				FF646477BA6948DC7EE98CE7 /* Pods_iOsBmoby.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F20282B91D91A38100BFA772 /* frameworks */ = {
+		1992EAD6743622836109F268 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0DBF3CDE53392D244505108A /* Pods-iOsBmoby.debug.xcconfig */,
+				E522BF86AAC6005362F07991 /* Pods-iOsBmoby.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2A7F136F4A22F48EF4A187D0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				F20282B31D919CB700BFA772 /* Bolts.framework */,
@@ -104,8 +120,9 @@
 				F20282A31D919B9B00BFA772 /* AudioToolbox.framework */,
 				F20282A11D919B8C00BFA772 /* libz.tbd */,
 				F202829F1D919B7700BFA772 /* libsqlite3.tbd */,
+				7C91E0651E858BA1F6A145B7 /* Pods_iOsBmoby.framework */,
 			);
-			name = frameworks;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		F2FB394D1D918C4D00FEB57F = {
@@ -113,7 +130,8 @@
 			children = (
 				F2FB39581D918C4E00FEB57F /* iOsBmoby */,
 				F2FB39571D918C4E00FEB57F /* Products */,
-				F20282B91D91A38100BFA772 /* frameworks */,
+				1992EAD6743622836109F268 /* Pods */,
+				2A7F136F4A22F48EF4A187D0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,6 +151,7 @@
 				F2FB39621D918C4E00FEB57F /* LaunchScreen.storyboard */,
 				F2FB39651D918C4E00FEB57F /* Info.plist */,
 				F2FEDF031D92D3280013027B /* Assets.xcassets */,
+				F2EF88E61D9D6AB80099F1EE /* SearchResultsController.swift */,
 				F20282BA1D91BE4900BFA772 /* listing.swift */,
 				F2200F5B1D95663600B57F61 /* RangeSlider.swift */,
 				F20A3BE51D94493D008DA808 /* citiesHeader.swift */,
@@ -154,9 +173,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F2FB39681D918C4E00FEB57F /* Build configuration list for PBXNativeTarget "iOsBmoby" */;
 			buildPhases = (
+				1AFDF89D8E9E9122090ED5E2 /* [CP] Check Pods Manifest.lock */,
 				F2FB39521D918C4E00FEB57F /* Sources */,
 				F2FB39531D918C4E00FEB57F /* Frameworks */,
 				F2FB39541D918C4E00FEB57F /* Resources */,
+				7340AEEE63C57CD21A2E6DAD /* [CP] Embed Pods Frameworks */,
+				91334B3229C4704DBB983205 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,6 +236,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1AFDF89D8E9E9122090ED5E2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7340AEEE63C57CD21A2E6DAD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOsBmoby/Pods-iOsBmoby-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91334B3229C4704DBB983205 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOsBmoby/Pods-iOsBmoby-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F2FB39521D918C4E00FEB57F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -223,6 +293,7 @@
 				F2200F5E1D95807000B57F61 /* searchHostMapVC.swift in Sources */,
 				F20282BB1D91BE4900BFA772 /* listing.swift in Sources */,
 				87CB8AEA1D98335800B2F492 /* createListingVC.swift in Sources */,
+				F2EF88E71D9D6AB80099F1EE /* SearchResultsController.swift in Sources */,
 				F2200F621D959CC400B57F61 /* searchHostListingVC.swift in Sources */,
 				F20A3BE41D944933008DA808 /* citiesVC.swift in Sources */,
 				F2FB395A1D918C4E00FEB57F /* AppDelegate.swift in Sources */,
@@ -340,6 +411,7 @@
 		};
 		F2FB39691D918C4E00FEB57F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0DBF3CDE53392D244505108A /* Pods-iOsBmoby.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -347,6 +419,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = iOsBmoby/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ms.iOsBmoby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -355,6 +428,7 @@
 		};
 		F2FB396A1D918C4E00FEB57F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E522BF86AAC6005362F07991 /* Pods-iOsBmoby.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -362,6 +436,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = iOsBmoby/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ms.iOsBmoby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
