@@ -11,6 +11,7 @@ import MapKit
 
 var searches = [[String]]()
 
+
 class searchHostMapVC: UIViewController {
 
     @IBOutlet weak var hostsMap: MKMapView!
