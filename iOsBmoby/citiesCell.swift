@@ -13,5 +13,6 @@ class citiesCell: UICollectionViewCell {
     // THIS IS THE PROTOTYPE OF THE CELL USED IN CitiesVC
     @IBOutlet weak var citiesCellNameLbl: UILabel!
     @IBOutlet weak var citiesCellImg: UIImageView!
+    
 }
 

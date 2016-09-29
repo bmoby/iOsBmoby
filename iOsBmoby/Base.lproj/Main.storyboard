@@ -8,7 +8,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="epL-dF-oba">
             <objects>
-                <tabBarController id="wwt-WP-M75" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeTab" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wwt-WP-M75" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Cu3-Ye-fI5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -16,8 +16,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="mfN-6F-zCL"/>
-                        <segue destination="ErF-Tl-w2K" kind="relationship" relationship="viewControllers" id="0Wv-UM-gko"/>
                         <segue destination="Nzx-Lw-tZd" kind="relationship" relationship="viewControllers" id="px4-RQ-3OO"/>
+                        <segue destination="HXO-Kw-Qym" kind="relationship" relationship="viewControllers" id="w41-J1-P3U"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oVW-9h-yos" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -749,7 +749,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1nc-8c-G9G">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="temporaire" id="1nc-8c-G9G">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -770,7 +770,7 @@
             </objects>
             <point key="canvasLocation" x="2816" y="640"/>
         </scene>
-        <!--Choose a city-->
+        <!--city-->
         <scene sceneID="VUn-3r-9AA">
             <objects>
                 <collectionViewController storyboardIdentifier="checkCVC" useStoryboardIdentifierAsRestorationIdentifier="YES" clearsSelectionOnViewWillAppear="NO" id="ErF-Tl-w2K" customClass="citiesVC" customModule="iOsBmoby" customModuleProvider="target" sceneMemberID="viewController">
@@ -779,13 +779,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kOo-JM-42b">
                             <size key="itemSize" width="154" height="149"/>
-                            <size key="headerReferenceSize" width="50" height="154"/>
+                            <size key="headerReferenceSize" width="50" height="75"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" reuseIdentifier="CitiesCell" id="4PT-8f-LkO" customClass="citiesCell" customModule="iOsBmoby" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="218" width="154" height="149"/>
+                                <rect key="frame" x="0.0" y="139" width="154" height="149"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="154" height="149"/>
@@ -808,33 +808,23 @@
                                 <connections>
                                     <outlet property="citiesCellImg" destination="V4m-vg-qFl" id="0N0-V7-8cI"/>
                                     <outlet property="citiesCellNameLbl" destination="dro-jx-WID" id="ten-bV-IUr"/>
-                                    <segue destination="BYZ-38-t0r" kind="push" id="t0g-NS-UA7"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CitiesHeader" id="GXp-B9-Hne" customClass="citiesHeader" customModule="iOsBmoby" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="64" width="320" height="154"/>
+                            <rect key="frame" x="0.0" y="64" width="320" height="75"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EmV-s5-xAl">
-                                    <rect key="frame" x="115" y="97" width="90" height="30"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a city" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gbl-Hu-Jxr">
+                                    <rect key="frame" x="113" y="27" width="94" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Appear there"/>
-                                    <connections>
-                                        <action selector="chooseCityBtnClicked:" destination="GXp-B9-Hne" eventType="touchUpInside" id="qsc-d3-aL8"/>
-                                        <segue destination="BYZ-38-t0r" kind="push" id="h3l-mb-4bq"/>
-                                    </connections>
-                                </button>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="city name" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" id="mfy-Kf-qvQ">
-                                    <rect key="frame" x="8" y="59" width="304" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </textField>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <connections>
-                                <outlet property="citiesHeaderSubmitBtn" destination="EmV-s5-xAl" id="cQ9-m0-uGa"/>
-                                <outlet property="citiesHeaderTxtField" destination="mfy-Kf-qvQ" id="KFZ-NI-wCd"/>
+                                <outlet property="title" destination="gbl-Hu-Jxr" id="uRu-R6-XGj"/>
                             </connections>
                         </collectionReusableView>
                         <connections>
@@ -842,17 +832,23 @@
                             <outlet property="delegate" destination="ErF-Tl-w2K" id="W6V-Zv-UoM"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Item" id="VTR-RQ-Jx7"/>
-                    <navigationItem key="navigationItem" title="Choose a city" id="3BE-DD-sTC"/>
+                    <tabBarItem key="tabBarItem" title="city" image="Search" id="VTR-RQ-Jx7"/>
+                    <navigationItem key="navigationItem" id="3BE-DD-sTC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="xXP-RB-PN8">
+                            <connections>
+                                <action selector="searchWithAddress:" destination="ErF-Tl-w2K" id="MpT-fg-Wmm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RtR-Y0-XkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1408" y="333"/>
+            <point key="canvasLocation" x="1000" y="1104"/>
         </scene>
-        <!--Item-->
+        <!--login-->
         <scene sceneID="lRu-NO-NuG">
             <objects>
-                <viewController id="Nzx-Lw-tZd" customClass="loginVC" customModule="iOsBmoby" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Nzx-Lw-tZd" customClass="loginVC" customModule="iOsBmoby" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yrf-vV-P2A">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -894,7 +890,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="QUF-OX-y87"/>
+                    <tabBarItem key="tabBarItem" title="login" image="user" id="QUF-OX-y87"/>
                     <connections>
                         <outlet property="forgotPasswordBtn" destination="NnT-FZ-BDf" id="Os1-57-rEE"/>
                         <outlet property="loginBtn" destination="j5Q-dl-DyE" id="wcq-U5-sbQ"/>
@@ -906,13 +902,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qJm-d8-ppV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="972" y="333"/>
+            <point key="canvasLocation" x="1408" y="421"/>
         </scene>
         <!--Item-->
         <scene sceneID="Vng-Ws-y5P">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HXO-Kw-Qym" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="fMF-yN-5HB"/>
+                <navigationController storyboardIdentifier="HomeNav" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HXO-Kw-Qym" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="Search" id="fMF-yN-5HB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gZL-rK-k4Y">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -925,7 +921,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SCK-lG-G2P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="972" y="998"/>
+            <point key="canvasLocation" x="1000" y="421"/>
         </scene>
         <!--Create ListingVC-->
         <scene sceneID="nie-Lb-PIw">
@@ -1676,15 +1672,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Search" width="31" height="31"/>
         <image name="default" width="395" height="245"/>
         <image name="iphone5" width="149" height="45"/>
         <image name="iphone6plus" width="221" height="72"/>
         <image name="listing" width="30" height="30"/>
         <image name="map" width="32" height="32"/>
         <image name="marker" width="64" height="64"/>
+        <image name="user" width="32" height="32"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="QHY-mR-n62"/>
-        <segue reference="t0g-NS-UA7"/>
-    </inferredMetricsTieBreakers>
 </document>

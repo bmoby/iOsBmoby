@@ -8,14 +8,9 @@
 
 import UIKit
 
-class citiesHeader: UICollectionReusableView {
-    @IBAction func chooseCityBtnClicked(sender: AnyObject) {
-        currentCity = citiesHeaderTxtField.text
-        print(currentCity)
-    }
-    
+class citiesHeader: UICollectionReusableView {    
     // THIS IS THE PROTOTYPE OF THE HEADER USED IN CitiesVC
-    @IBOutlet weak var citiesHeaderSubmitBtn: UIButton!
-    @IBOutlet weak var citiesHeaderTitleLbl: UILabel!
-    @IBOutlet weak var citiesHeaderTxtField: UITextField!
+
+    @IBOutlet weak var title: UILabel!
+    
 }
