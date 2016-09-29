@@ -12,7 +12,6 @@ import Parse
 var currentCity: String?
 
 class citiesVC: UICollectionViewController {
-    
     // Declaration of variables
     var refresher: UIRefreshControl!
     var citiesNames = [String]()
