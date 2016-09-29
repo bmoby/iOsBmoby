@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8704A38E1D92811200004A6E /* homeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8704A38D1D92811200004A6E /* homeVC.swift */; };
 		87CB8AEA1D98335800B2F492 /* createListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CB8AE91D98335800B2F492 /* createListingVC.swift */; };
+		E26D884725C0F7A887950586 /* Pods_iOsBmoby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFA338FB1931AB061258D56 /* Pods_iOsBmoby.framework */; };
 		F20282A01D919B7700BFA772 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F202829F1D919B7700BFA772 /* libsqlite3.tbd */; };
 		F20282A21D919B8C00BFA772 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F20282A11D919B8C00BFA772 /* libz.tbd */; };
 		F20282A41D919B9B00BFA772 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F20282A31D919B9B00BFA772 /* AudioToolbox.framework */; };
@@ -36,8 +37,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6EB2FA7EA839068D931764D3 /* Pods-iOsBmoby.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOsBmoby.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOsBmoby/Pods-iOsBmoby.release.xcconfig"; sourceTree = "<group>"; };
 		8704A38D1D92811200004A6E /* homeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeVC.swift; sourceTree = "<group>"; };
 		87CB8AE91D98335800B2F492 /* createListingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = createListingVC.swift; sourceTree = "<group>"; };
+		8EFA338FB1931AB061258D56 /* Pods_iOsBmoby.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOsBmoby.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A36EC920414BAB05ED5A5EB5 /* Pods-iOsBmoby.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOsBmoby.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOsBmoby/Pods-iOsBmoby.debug.xcconfig"; sourceTree = "<group>"; };
 		F202829F1D919B7700BFA772 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		F20282A11D919B8C00BFA772 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		F20282A31D919B9B00BFA772 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -83,12 +87,30 @@
 				F20282A21D919B8C00BFA772 /* libz.tbd in Frameworks */,
 				F20282B61D919CB700BFA772 /* Parse.framework in Frameworks */,
 				F20282A01D919B7700BFA772 /* libsqlite3.tbd in Frameworks */,
+				E26D884725C0F7A887950586 /* Pods_iOsBmoby.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0800F36E2D58389667F4AB91 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8EFA338FB1931AB061258D56 /* Pods_iOsBmoby.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C321A49DEC5F7281F04B54CD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A36EC920414BAB05ED5A5EB5 /* Pods-iOsBmoby.debug.xcconfig */,
+				6EB2FA7EA839068D931764D3 /* Pods-iOsBmoby.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F20282B91D91A38100BFA772 /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +136,8 @@
 				F2FB39581D918C4E00FEB57F /* iOsBmoby */,
 				F2FB39571D918C4E00FEB57F /* Products */,
 				F20282B91D91A38100BFA772 /* frameworks */,
+				C321A49DEC5F7281F04B54CD /* Pods */,
+				0800F36E2D58389667F4AB91 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,9 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F2FB39681D918C4E00FEB57F /* Build configuration list for PBXNativeTarget "iOsBmoby" */;
 			buildPhases = (
+				0273A5BB0DD9CD9DFAF12596 /* [CP] Check Pods Manifest.lock */,
 				F2FB39521D918C4E00FEB57F /* Sources */,
 				F2FB39531D918C4E00FEB57F /* Frameworks */,
 				F2FB39541D918C4E00FEB57F /* Resources */,
+				BAC8E0F002B5DD98550A89A8 /* [CP] Embed Pods Frameworks */,
+				ACF9E3083F9F8A3E12AE4EC2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,6 +240,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0273A5BB0DD9CD9DFAF12596 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		ACF9E3083F9F8A3E12AE4EC2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOsBmoby/Pods-iOsBmoby-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BAC8E0F002B5DD98550A89A8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOsBmoby/Pods-iOsBmoby-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F2FB39521D918C4E00FEB57F /* Sources */ = {
@@ -340,6 +415,7 @@
 		};
 		F2FB39691D918C4E00FEB57F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A36EC920414BAB05ED5A5EB5 /* Pods-iOsBmoby.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -355,6 +431,7 @@
 		};
 		F2FB396A1D918C4E00FEB57F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EB2FA7EA839068D931764D3 /* Pods-iOsBmoby.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
