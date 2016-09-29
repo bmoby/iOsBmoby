@@ -8,17 +8,20 @@
 
 import UIKit
 import Parse
+import GoogleMaps
 
-var currentCity: String?
+var currentCity:String?
 
-class citiesVC: UICollectionViewController {
+class citiesVC: UICollectionViewController, UISearchBarDelegate {
+    
     // Declaration of variables
     var refresher: UIRefreshControl!
     var citiesNames = [String]()
     var citiesImages = [PFFile]()
     var keyboard = CGRect()
+    var searchResultController: SearchResultsController!
+    var resultsArray = [String]()
     
-    var slider = RangeSlider()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,27 +32,31 @@ class citiesVC: UICollectionViewController {
         refresher = UIRefreshControl()
         refresher.addTarget(self, action: #selector(citiesVC.refresh), forControlEvents: UIControlEvents.ValueChanged)
         collectionView?.addSubview(refresher)
-        self.view.addSubview(slider)
+        
         // Action to load the collection of cities with icons and names from DB
         loadCities()
+        
     }
-    // ---------------------------------------------------------------------------------------------------
-    // TWO FUNCTION FOR KEYBOARD SHOW & HIDE--------------------------------------------------------------
+    
+    
+    // TWO FUNCTION FOR KEYBOARD SHOW & HIDE ---------------------------------------------------------
+    // -----------------------------------------------------------------------------------------------
     
     func hideKeyboard(recognizer:UITapGestureRecognizer){
         UIView.animateWithDuration(0.4){ () -> Void in
             self.view.endEditing(true)
         }
     }
-    // ---------------------------------------------------------------------------------------------------
-    // REFRESHER OF THE PAGE------------------------------------------------------------------------------
+    
+    // -----------------------------------------------------------------------------------------------
+    // REFRESHER OF THE PAGE--------------------------------------------------------------------------
     
     func refresh(){
         collectionView?.reloadData()
         refresher.endRefreshing()
     }
-    // ---------------------------------------------------------------------------------------------------
-    // ACTION TO LOAD THE CITIES--------------------------------------------------------------------------
+    // -----------------------------------------------------------------------------------------------
+    // ACTION TO LOAD THE CITIES----------------------------------------------------------------------
     
     func loadCities(){
         let query = PFQuery(className: "cities")
@@ -75,8 +82,9 @@ class citiesVC: UICollectionViewController {
             }
         })
     }
-    // ---------------------------------------------------------------------------------------------------
-    // DECLARING A HEADER OF TYPE citiesHeader.swift------------------------------------------------------
+    
+    // -----------------------------------------------------------------------------------------------
+    // DECLARING A HEADER OF TYPE citiesHeader.swift--------------------------------------------------
     
     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "CitiesHeader", forIndexPath: indexPath) as! citiesHeader
@@ -88,8 +96,8 @@ class citiesVC: UICollectionViewController {
         header.addGestureRecognizer(hideKeyboardOnTap)
         return header
     }
-    // ---------------------------------------------------------------------------------------------------
-    // DECLARING A CELL OF TYPE citiesCell ---------------------------------------------------------------
+    // -----------------------------------------------------------------------------------------------
+    // DECLARING A CELL OF TYPE citiesCell -----------------------------------------------------------
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CitiesCell", forIndexPath: indexPath) as! citiesCell
@@ -103,20 +111,63 @@ class citiesVC: UICollectionViewController {
         })
         return cell
     }
-    // ---------------------------------------------------------------------------------------------------
-    // CHANGE THE VALUE OF CURRENTCITY WITH SELECTION ----------------------------------------------------
+    // -----------------------------------------------------------------------------------------------
+    // CHANGE THE VALUE OF CURRENTCITY WITH SELECTION ------------------------------------------------
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! citiesCell
-        currentCity = cell.citiesCellNameLbl.text
+        currentCity = cell.citiesCellNameLbl.text!
         print(currentCity)
+        self.tabBarController?.selectedIndex = 0
     }
-    // ---------------------------------------------------------------------------------------------------
-    // DECLARING THE NUMBER OF ITEMS TO SHOW -------------------------------------------------------------
     
-       override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    // -----------------------------------------------------------------------------------------------
+    // DECLARING THE NUMBER OF ITEMS TO SHOW ---------------------------------------------------------
+    
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return citiesImages.count
     }
-    // ---------------------------------------------------------------------------------------------------
-    // END -----------------------------------------------------------------------------------------------
+    
+    // -----------------------------------------------------------------------------------------------
+    // AUTOCOMPLETE FUNCTION WITH TABLE VIEW ---------------------------------------------------------
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        searchResultController = SearchResultsController()
+    }
+    
+    // action for the search button
+    @IBAction func searchWithAddress(sender: AnyObject) {
+        let searchController = UISearchController(searchResultsController: searchResultController)
+        searchController.searchBar.delegate = self
+        self.presentViewController(searchController, animated: true, completion: nil)
+    }
+    
+    // function searchbar to print out the results in the cells of the table
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        let placeClient = GMSPlacesClient()
+        placeClient.autocompleteQuery(searchText, bounds: nil, filter: nil) { (results, error: NSError?) -> Void in
+            
+            self.resultsArray.removeAll()
+            if results == nil {
+                print(error!.localizedDescription)
+            } else {
+                for result in results! {
+                    self.resultsArray.append(result.attributedFullText.string)
+                }
+                self.searchResultController.reloadDataWithArray(self.resultsArray)
+            }
+            return
+        }
+    }
+    
+    // default function didReceiveMemory in case of saving data in background
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    // ------------------------------------------------------------------------------------------------
+    // END --------------------------------------------------------------------------------------------
 }
